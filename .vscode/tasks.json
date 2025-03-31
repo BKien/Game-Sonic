@@ -3,12 +3,17 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "D:/project/MinGW/bin/g++.exe",
+            "command": "D:\\project\\MinGW\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "D:\\project\\src\\*.cpp",
-                "-ID:\\project\\header\\",
+                "D:\\project\\src\\main.cpp",
+                "D:\\project\\src\\game.cpp",
+                "D:\\project\\src\\input.cpp",
+                "D:\\project\\src\\render.cpp",
+                "D:\\project\\src\\utils.cpp",
+                "-ID:\\project\\src",
+                "-LD:\\project\\MinGW\\lib",
                 "-lmingw32",
                 "-lSDL2main",
                 "-lSDL2",
@@ -19,7 +24,7 @@
                 "D:\\project\\game.exe"
             ],
             "options": {
-                "cwd": "D:/project/MinGW/bin"
+                "cwd": "D:\\project"
             },
             "problemMatcher": [
                 "$gcc"
