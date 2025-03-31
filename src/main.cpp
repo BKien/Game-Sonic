@@ -1,5 +1,22 @@
 #include "game.h"
 #include <iostream>
+#if defined(__GNUC__) && __GNUC__ < 9
+    #include <experimental/filesystem>
+    namespace fs = std::experimental::filesystem;
+#else
+    #include <filesystem>
+    namespace fs = std::filesystem;
+#endif
+std::string getExecutablePath() {
+    return std::filesystem::current_path().string();
+}
+
+// Function to get the resource path dynamically
+std::string getResourcePath(const std::string& filename) {
+    std::filesystem::path basePath = std::filesystem::current_path();
+    std::filesystem::path fullPath = basePath / filename;
+    return fullPath.string();
+}
 
 int main(int argc, char* argv[]) {
     srand(time(0));
@@ -37,8 +54,25 @@ int main(int argc, char* argv[]) {
         SDL_Quit();
         return -1;
     }
+    
+    std::string musicPath = getResourcePath("src/sound/background.mp3");
+    std::string playerTexturePath = getResourcePath("src/img/sonic.png");
+    std::string planeTexturePath = getResourcePath("src/img/plane.png");
+    std::string spikeTexturePath = getResourcePath("src/img/spikes_2.png");
+    std::string tallObstacleTexturePath = getResourcePath("src/img/tallObstacleTexture.png");
+    std::string movingObstacleTexturePath = getResourcePath("src/img/moving_obstacle.png");
+    std::string backgroundPath = getResourcePath("src/img/background.png");
+    std::string background2Path = getResourcePath("src/img/background_2.jpg");
+    std::string birdTexturePath = getResourcePath("src/img/blade_3.png");
+    std::string powerUpTexturePath = getResourcePath("src/img/powerup.png");
+    std::string scoreBoosteextur = getResourcePath("src/img/scorebooster.png");
+    std::string coinTexturePath = getResourcePath("src/img/coin.png");
+    std::string rocketTexturePath = getResourcePath("src/img/rocket.png");
+    std::string speedBoostTexturePath = getResourcePath("src/img/speedboost.png");
+    std::string gapTexturePath = getResourcePath("src/img/gap.jpg");
+    std::string groundTexturePath = getResourcePath("src/img/ground.jpg");
 
-    backgroundMusic = Mix_LoadMUS("D:/project/src/sound/background.mp3");
+    backgroundMusic = Mix_LoadMUS(musicPath.c_str());
     if (!backgroundMusic) {
         std::cerr << "Failed to load background music: " << Mix_GetError() << "\n";
         SDL_DestroyRenderer(renderer);
@@ -50,21 +84,21 @@ int main(int argc, char* argv[]) {
         return -1;
     }
 
-    playerTexture = loadTexture("D:/project/src/img/sonic.png");
-    planeTexture = loadTexture("D:/project/src/img/plane.png");
-    spikeTexture = loadTexture("D:/project/src/img/spikes_2.png");
-    tallObstacleTexture = loadTexture("D:/project/src/img/tallObstacleTexture.png");
-    movingObstacleTexture = loadTexture("D:/project/src/img/moving_obstacle.png");
-    gapTexture = loadTexture("D:/project/src/img/gap.jpg");
-    groundTexture = loadTexture("D:/project/src/img/ground.jpg");
-    backgroundTextures.push_back(loadTexture("D:/project/src/img/background.png"));
-    backgroundTextures.push_back(loadTexture("D:/project/src/img/background_2.jpg"));
-    birdTexture = loadTexture("D:/project/src/img/blade_3.png");
-    powerUpTexture = loadTexture("D:/project/src/img/powerup.png");
-    scoreBoosterTexture = loadTexture("D:/project/src/img/scorebooster.png");
-    coinTexture = loadTexture("D:/project/src/img/coin.png");
-    rocketTexture = loadTexture("D:/project/src/img/rocket.png");
-    speedBoostTexture = loadTexture("D:/project/src/img/speedboost.png");
+    playerTexture = loadTexture(playerTexturePath.c_str());
+    planeTexture = loadTexture(planeTexturePath.c_str());
+    spikeTexture = loadTexture(spikeTexturePath.c_str());
+    tallObstacleTexture = loadTexture(tallObstacleTexturePath.c_str());
+    movingObstacleTexture = loadTexture(movingObstacleTexturePath.c_str());
+    gapTexture = loadTexture(gapTexturePath.c_str());
+    groundTexture = loadTexture(groundTexturePath.c_str());
+    backgroundTextures.push_back(loadTexture(backgroundPath.c_str()));
+    backgroundTextures.push_back(loadTexture(background2Path.c_str()));
+    birdTexture = loadTexture(birdTexturePath.c_str());
+    powerUpTexture = loadTexture(powerUpTexturePath.c_str());
+    scoreBoosterTexture = loadTexture(scoreBoosteextur.c_str());
+    coinTexture = loadTexture(coinTexturePath.c_str());
+    rocketTexture = loadTexture(rocketTexturePath.c_str());
+    speedBoostTexture = loadTexture(speedBoostTexturePath.c_str());
 
     if (!playerTexture || !planeTexture || !spikeTexture || !tallObstacleTexture || 
         !movingObstacleTexture || !gapTexture || !groundTexture || 
