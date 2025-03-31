@@ -1,61 +1,48 @@
-0. Cách Tải Game
-Link tải: Tải game tại đây (giả định bạn đã phát hành game dưới dạng file .zip).
-Hướng dẫn:
-Tải file SonicSkyRunner.zip từ link trên.
-Giải nén file vào một thư mục bất kỳ.
-Đảm bảo các file DLL của SDL2 (SDL2.dll, SDL2_image.dll, SDL2_ttf.dll, SDL2_mixer.dll) và thư mục img (chứa sonic.png, plane.png) có trong cùng thư mục với game.exe.
-Mở file game.exe để bắt đầu chơi.
-1. Bắt Đầu Game
-Khi mở game, bạn sẽ thấy màn hình khởi động với Sonic bay trên bầu trời.
-Nhấn phím Enter hoặc click chuột để bắt đầu chạy.
-Sonic sẽ tự động bay về phía trước, và nhiệm vụ của bạn là điều khiển anh ấy để né tránh chướng ngại vật.
-2. Chọn Màn Chơi
-Game có 3 màn chơi với bối cảnh bầu trời khác nhau:
-Màn 1: Bầu Trời Xanh: Bầu trời yên bình với ít máy bay địch.
-Màn 2: Bầu Trời Hoàng Hôn: Nhiều máy bay hơn, tốc độ nhanh hơn.
-Màn 3: Bầu Trời Đêm: Đầy thử thách với các máy bay nhanh và dày đặc.
-Sử dụng phím 1, 2, 3 để chọn màn chơi từ menu chính (tính năng này có thể được thêm trong tương lai).
-Hoàn thành các mục tiêu trong từng màn để mở khóa màn tiếp theo.
-3. Các Thành Phần Trong Game
-Sonic (Nhân Vật Chính): Chú nhím Sonic bay trên bầu trời, né tránh chướng ngại vật và thu thập điểm.
-Máy Bay Địch (Obstacles): Các máy bay xuất hiện ngẫu nhiên, cản đường Sonic.
-Điểm Số (Score): Hiển thị ở góc trên cùng của màn hình, tăng dần theo thời gian và số máy bay bạn vượt qua.
-Thanh Năng Lượng (Power Bar): Hiển thị năng lượng của Sonic (tính năng này có thể được thêm trong tương lai).
-Nút Tạm Dừng (Pause Button): Nhấn phím P để tạm dừng game.
-Bố cục game cơ bản:
-Sonic bay từ trái sang phải trên một bầu trời cuộn vô tận.
-Máy bay địch xuất hiện ngẫu nhiên từ bên phải, di chuyển về phía Sonic.
-4. Cách Chơi
+1.Cách Tải Game
+
+
+2.Cách Chơi
+Chọn Start Game để bắt đầu
+Sonic sẽ tự động chạy về phía trước, và nhiệm vụ của bạn là điều khiển anh ấy để né tránh chướng ngại vật.
+Chọn Màn Chơi
+Game có 2 màn chơi với bối cảnh bầu trời khác nhau:
+Màn 1: Bầu Trời Xanh 
+Màn 2: Bầu Trời Hoàng Hôn 
+
+2.Các Thành Phần Trong Game
+Sonic (Nhân Vật Chính): Chú nhím Sonic né tránh chướng ngại vật và thu thập vật phẩm.
+Chướng ngại vật (Obstacles): Các chướng ngại vật xuất hiện ngẫu nhiên, cản đường Sonic.
+Điểm Số (Score): Hiển thị ở góc trên cùng của màn hình, tăng dần theo thời gian .
+
+3.Bố cục game cơ bản:
+Sonic chạy từ trái sang phải trên một bầu trời cuộn vô tận. Chướng ngại vật xuất hiện ngẫu nhiên từ bên phải, di chuyển về phía Sonic.
+
+4.Cách Chơi
 Mục tiêu: Điều khiển Sonic để né tránh máy bay địch, thu thập điểm số và chạy càng xa càng tốt.
 Điều khiển:
-Di chuyển: Sử dụng phím W (lên), S (xuống), A (trái), D (phải) hoặc các phím mũi tên để di chuyển Sonic.
-Nhảy/Lao: Nhấn phím Space để Sonic nhảy hoặc lao nhanh (tính năng này có thể được thêm).
-Tạm dừng: Nhấn phím P để tạm dừng game.
-a. Nhân Vật và Kỹ Năng
-Sonic:
-Tự động bay về phía trước với tốc độ tăng dần.
-Có thể di chuyển lên, xuống, trái, phải để né chướng ngại vật.
-Kỹ Năng (Tính năng có thể được thêm):
+Di chuyển: Sử dụng phím space để nhảy.
+
 Tăng tốc: Thu thập vật phẩm tăng tốc để bay nhanh hơn trong thời gian ngắn.
 Khiên bảo vệ: Bảo vệ Sonic khỏi một lần va chạm.
-b. Chướng Ngại Vật và Kẻ Thù
-Game có 2 loại chướng ngại vật (dựa trên texture plane.png):
+Chướng Ngại Vật và Kẻ Thù
+Game có 2 loại chướng ngại vật
 
 Tên Chướng Ngại Vật	Chức Năng
-Máy Bay Thường	Di chuyển thẳng về phía Sonic, gây va chạm nếu không né kịp.
-Máy Bay Nhanh	Di chuyển nhanh hơn, khó né hơn (tính năng này có thể được thêm).
-5. Chiến Thắng và Thất Bại
+Chướng ngại vật bay:
+Chướng ngại vật di chuyển lên xuống:
+Chướng ngại vật hồ nước:
+Chướng ngại vật cao:
 Chiến thắng: Không có điểm kết thúc (endless runner). Mục tiêu là đạt điểm số cao nhất có thể.
-Thất bại: Nếu Sonic va chạm với máy bay địch, game sẽ kết thúc. Điểm số của bạn sẽ được hiển thị, và bạn có thể chơi lại.
-6. Về Đồ Họa Của Game
+Thất bại: Nếu Sonic va chạm với chướng ngại vật, game sẽ kết thúc. Điểm số của bạn sẽ được hiển thị, và bạn có thể chơi lại.
+
+Về Đồ Họa Của Game
 Đồ họa của game được thiết kế đơn giản nhưng bắt mắt:
 Sonic: Sử dụng texture sonic.png, với hoạt ảnh di chuyển mượt mà.
-Máy Bay Địch: Sử dụng texture plane.png, xuất hiện ngẫu nhiên trên màn hình.
 Nền: Một bầu trời cuộn vô tận với các đám mây (có thể được thêm trong tương lai).
 Hiệu ứng:
-Hiệu ứng va chạm: Máy bay biến mất khi va chạm với Sonic, kèm theo hiệu ứng nổ (có thể được thêm).
-Hiệu ứng tăng tốc: Sonic phát sáng khi sử dụng vật phẩm tăng tốc (tính năng này có thể được thêm).
-7. Về Source Code Game
+Hiệu ứng khiên: Sonic phát sáng và có thêm lớp khiên khi sử dụng vật phẩm
+Hiệu ứng tăng tốc: Sonic phát sáng khi sử dụng vật phẩm tăng tốc 
+Về Source Code Game
 Mã nguồn của game được tổ chức thành các file và thư mục:
 
 Thư mục src:
